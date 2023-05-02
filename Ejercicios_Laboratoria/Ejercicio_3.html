@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings and Cost</title>
+</head>
+<body>
+    <div id='root'></div>
+</body>
+<script>
+    import {netIncome, tax, totalIncome} from './functions.js';
+
+    let saleValue = prompt("¿Cuál es el valor de venta?");
+    let cost = prompt("¿Cuál es el costo?");
+    let taxes = prompt("¿Cuál es el porcentaje de impuestos?");
+
+    document.getElementById('root').innerHTML = "Tú ganancia total es: " + totalIncome();
+</script>
+</html>
