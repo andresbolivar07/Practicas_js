@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings and Cost</title>
+</head>
+<body>
+    <h1>Escriba sus ingresos y costos</h1> 
+    <form action="">
+        Ingresos
+        <input id="profits" type="number" name="profits" />
+        Costos
+        <input id="cost" type="number" name="cost" />
+        Impuestos
+        <input id="taxes" type="number" name="taxes" />
+        <button id="btn-calc">Calcular</button> 
+    </form>
+
+    <div id="result"></div>
+
+</body>
+
+<script type="module">
+    import { netIncome } from './functions.js';
+
+    const btnCalc = document.getElementById("btn-calc");
+    const inputProfits = document.getElementById("profits");
+    const inputCost = document.getElementById("cost");
+    const inputTaxes = document.getElementById("taxes");
+    btnCalc.addEventListener("click", function(event) {
+        event.preventDefault(); //evitar que el formulario se envíe sin dar click en calcular
+
+        //Leer el valor de los input
+        const profitsValue = inputProfits.value;
+        const costValue = inputCost.value;
+        const taxesValue = inputTaxes.value;
+
+        //Usar la información para realizar el calculo con la función y mostrar el resultado en consola
+        const result = netIncome(profitsValue, costValue, taxesValue);
+        document.getElementById('result').innerHTML = `La ganancia total es: $ ${ result}`;
+    })
+</script>
+</html>

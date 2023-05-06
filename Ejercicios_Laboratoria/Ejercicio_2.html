@@ -7,6 +7,13 @@
     <title>TempConvert</title>
 </head>
 <body>
-    <script src="./functions.js"></script>
+    <div id="root"></div>
 </body>
+<script type="module">
+    import {tempFarenheit} from './functions.js';
+    
+    let tempCelsius = prompt("Indique la temperatura que desea convertir");
+
+    document.getElementById('root').innerHTML = "La temperatura en grados Fahenheit es: " + tempFarenheit(tempCelsius);
+</script>
 </html>
