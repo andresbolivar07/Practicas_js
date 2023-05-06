@@ -25,10 +25,10 @@
 <script type="module">
     import { netIncome } from './functions.js';
 
-    const btnCalc = document.getElementById("btn-calc")
-    const inputProfits = document.getElementById("profits")
-    const inputCost = document.getElementById("cost")
-    const inputTaxes = document.getElementById("taxes")
+    const btnCalc = document.getElementById("btn-calc");
+    const inputProfits = document.getElementById("profits");
+    const inputCost = document.getElementById("cost");
+    const inputTaxes = document.getElementById("taxes");
     btnCalc.addEventListener("click", function(event) {
         event.preventDefault(); //evitar que el formulario se envíe sin dar click en calcular
 
@@ -38,8 +38,8 @@
         const taxesValue = inputTaxes.value;
 
         //Usar la información para realizar el calculo con la función y mostrar el resultado en consola
-        const result = netIncome(profitsValue, costValue, taxesValue)
-        document.getElementById('result').innerHTML = `La ganancia total es: $ ${ result}`
+        const result = netIncome(profitsValue, costValue, taxesValue);
+        document.getElementById('result').innerHTML = `La ganancia total es: $ ${ result}`;
     })
 </script>
 </html>

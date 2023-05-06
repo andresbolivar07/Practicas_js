@@ -6,7 +6,7 @@ const tempFarenheit = (tempCelsius) => (tempCelsius*1.8) + 32;
 
 //ejercicio 3
 
-const netIncome = (profits, cost, taxes) => (profits - cost)*((100-taxes)/100)
+const netIncome = (profits, cost, taxes) => (profits - cost)*((100-taxes)/100);
 
 
 
