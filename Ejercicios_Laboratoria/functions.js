@@ -6,12 +6,8 @@ const tempFarenheit = (tempCelsius) => (tempCelsius*1.8) + 32;
 
 //ejercicio 3
 
-const netIncome = (saleValue, cost) => saleValue - cost;
-
-const tax = (netIncome, taxes) => netIncome*taxes;
-
-const totalIncome = (netIncome, tax) => netIncome - tax;
+const netIncome = (profits, cost, taxes) => (profits - cost)*((100-taxes)/100)
 
 
 
-export {edadEnSegundos, tempFarenheit, netIncome, tax, totalIncome};
+export {edadEnSegundos, tempFarenheit, netIncome};
