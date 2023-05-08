@@ -12,6 +12,8 @@
     <div id="exercise1"></div>
     <h2>Exercise 9</h2>
     <div id="exercise9"></div>
+    <h2>Exercise 10</h2>
+    <div id="exercise10"></div>
 
 </body>
 <script>
@@ -51,5 +53,21 @@ const multiNums = (numb) => {
 const result2 = document.getElementById("exercise9"); 
 result2.innerHTML = multiNums(82);
 
+// Leer un número entero de dos dígitos y determinar si los dígitos son iguales.
+
+const twoDigits = (number) => {
+    if (number < 10 || number > 99){
+        return "El número no tiene dos dígitos";
+    }
+    const number1 =  parseInt(number /10);
+        const number2 = number % 10;
+        if (number1 === number2) {
+        return "Los dígitos son iguales";
+        }else {
+            return "Los dígitos no son iguales";
+    }
+}
+const result3 = document.getElementById("exercise10");
+result3.innerHTML = twoDigits(44);
 </script>
 </html>
