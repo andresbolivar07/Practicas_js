@@ -10,6 +10,8 @@
     <h1>Ejercicios de Algoritmos</h1>
     <h2>Exercise 1</h2>
     <div id="exercise1"></div>
+    <h2>Exercise 9</h2>
+    <div id="exercise9"></div>
 
 </body>
 <script>
@@ -27,9 +29,27 @@
     }else{
         return "Este núnero no termina en 4";
     }
-
 }
 const result = document.getElementById("exercise1"); 
 result.innerHTML = compDigits(44);
+
+// Leer un númeri de dos dígitos y determinar si un dígito es multiplo del otro. 
+
+const multiNums = (numb) => {
+
+    if (numb >= 10 && numb <= 99){
+        const numb1 =  parseInt(numb /10);
+        const numb2 = numb % 10;
+        if (numb1 % numb2 === 0) {
+            return "Los números son multiplos";
+        }else {
+            return "Los números no son multiplos";
+        }
+    }
+        return "El número no tiene dos dígitos"; 
+}
+const result2 = document.getElementById("exercise9"); 
+result2.innerHTML = multiNums(92);
+
 </script>
 </html>
