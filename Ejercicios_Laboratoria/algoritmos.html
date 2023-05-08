@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmos</title>
+</head>
+<body>
+    <h1>Ejercicios de Algoritmos</h1>
+    <h2>Exercise 1</h2>
+    <div id="exercise1"></div>
+
+</body>
+<script>
+    // Leer un número entero y determiar si es un número terminado en 4. 
+    const compDigits = (num) => {
+    if(num < 0){
+        num = num * -1;
+    } 
+    // Despues de validar que es positivo, validamos cual es el úttimo dígito
+
+    let  endNum = num - (parseInt(num / 10) * 10);
+
+    if (endNum === 4) {
+        return "El número termina en 4";
+    }else{
+        return "Este núnero no termina en 4";
+    }
+
+}
+const result = document.getElementById("exercise1"); 
+result.innerHTML = compDigits(44);
+</script>
+</html>
