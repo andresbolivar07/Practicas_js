@@ -37,19 +37,19 @@ result.innerHTML = compDigits(44);
 
 const multiNums = (numb) => {
 
-    if (numb >= 10 && numb <= 99){
-        const numb1 =  parseInt(numb /10);
+    if (numb < 10 || numb > 99){
+        return "El número no tiene dos dígitos";
+    }
+    const numb1 =  parseInt(numb /10);
         const numb2 = numb % 10;
         if (numb1 % numb2 === 0) {
             return "Los números son multiplos";
         }else {
             return "Los números no son multiplos";
         }
-    }
-        return "El número no tiene dos dígitos"; 
 }
 const result2 = document.getElementById("exercise9"); 
-result2.innerHTML = multiNums(92);
+result2.innerHTML = multiNums(82);
 
 </script>
 </html>
