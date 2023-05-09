@@ -14,6 +14,8 @@
     <div id="exercise9"></div>
     <h2>Exercise 10</h2>
     <div id="exercise10"></div>
+    <h2>Exercise 11</h2>
+    <div id="exercise11"></div>
 
 </body>
 <script>
@@ -69,5 +71,21 @@ const twoDigits = (number) => {
 }
 const result3 = document.getElementById("exercise10");
 result3.innerHTML = twoDigits(44);
+
+// Leer dos números entéros y determibar cuál es mayor.
+
+const compNumbers = (nu1, nu2) => {
+    if (nu1 === nu2){
+        return "Los números son iguales";
+    }
+    if (nu1 > nu2){
+        return `El número ${ nu1} es mayor que ${nu2}`;
+    }else {
+        return `El número ${ nu2} es mayor que ${nu1}`;
+    }
+}
+const result4 = document.getElementById("exercise11");
+result4.innerHTML = compNumbers(25, 14);
+
 </script>
 </html>
