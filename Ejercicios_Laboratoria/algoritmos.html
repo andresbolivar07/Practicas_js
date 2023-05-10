@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmos</title>
+</head>
+<body>
+    <h1>Ejercicios de Algoritmos</h1>
+    <h2>Exercise 1</h2>
+    <div id="exercise1"></div>
+    <h2>Exercise 9</h2>
+    <div id="exercise9"></div>
+    <h2>Exercise 10</h2>
+    <div id="exercise10"></div>
+    <h2>Exercise 11</h2>
+    <div id="exercise11"></div>
+
+</body>
+<script>
+    // Leer un número entero y determiar si es un número terminado en 4. 
+    const compDigits = (num) => {
+    if(num < 0){
+        num = num * -1;
+    } 
+    // Despues de validar que es positivo, validamos cual es el úttimo dígito
+
+    let  endNum = num - (parseInt(num / 10) * 10);
+
+    if (endNum === 4) {
+        return "El número termina en 4";
+    }else{
+        return "Este núnero no termina en 4";
+    }
+}
+const result = document.getElementById("exercise1"); 
+result.innerHTML = compDigits(44);
+
+// Leer un númeri de dos dígitos y determinar si un dígito es multiplo del otro. 
+
+const multiNums = (numb) => {
+
+    if (numb < 10 || numb > 99){
+        return "El número no tiene dos dígitos";
+    }
+    const numb1 =  parseInt(numb /10);
+        const numb2 = numb % 10;
+        if (numb1 % numb2 === 0) {
+            return "Los números son multiplos";
+        }else {
+            return "Los números no son multiplos";
+        }
+}
+const result2 = document.getElementById("exercise9"); 
+result2.innerHTML = multiNums(82);
+
+// Leer un número entero de dos dígitos y determinar si los dígitos son iguales.
+
+const twoDigits = (number) => {
+    if (number < 10 || number > 99){
+        return "El número no tiene dos dígitos";
+    }
+    const number1 =  parseInt(number /10);
+        const number2 = number % 10;
+        if (number1 === number2) {
+        return "Los dígitos son iguales";
+        }else {
+            return "Los dígitos no son iguales";
+    }
+}
+const result3 = document.getElementById("exercise10");
+result3.innerHTML = twoDigits(44);
+
+// Leer dos números entéros y determibar cuál es mayor.
+
+const compNumbers = (nu1, nu2) => {
+    if (nu1 === nu2){
+        return "Los números son iguales";
+    }
+    if (nu1 > nu2){
+        return `El número ${ nu1} es mayor que ${nu2}`;
+    }else {
+        return `El número ${ nu2} es mayor que ${nu1}`;
+    }
+}
+const result4 = document.getElementById("exercise11");
+result4.innerHTML = compNumbers(25, 14);
+
+</script>
+</html>
