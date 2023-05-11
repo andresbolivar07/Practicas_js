@@ -16,6 +16,14 @@
     <div id="exercise10"></div>
     <h2>Exercise 11</h2>
     <div id="exercise11"></div>
+    <h2>Exercise 13</h2>
+    <div id="exercise13"></div>
+    <h2>Exercise 17</h2>
+    <div id="exercise17"></div>
+    <h2>Exercise 22</h2>
+    <div id="exercise22"></div>
+    <h2>Exercise 27</h2>
+    <div id="exercise27"></div>
 
 </body>
 <script>
@@ -87,5 +95,114 @@ const compNumbers = (nu1, nu2) => {
 const result4 = document.getElementById("exercise11");
 result4.innerHTML = compNumbers(25, 14);
 
+//Leer dos números enteros de dos dígitos y determinar si la suma de los dos números origina un numero par.
+
+const numbersPeers = (num1, num2) => {
+    if(num1 < 0 && num2 < 0){
+        num1 = num1 * -1;
+        num2 = num2 * -1;
+    }
+    if(num1 < 10 || num1 > 99 && num2 < 10 || num2 > 99  ) {
+        return "Los números no son válidos, por favor digite dos numeros enteros de dos dígitos";
+    }
+    let suma = num1 + num2;
+    if(suma % 2 === 0) {
+        return `La suma de los dos números es ${ suma} y es par`;
+    }else{
+        return `La suma de los dos números es ${ suma} y es impar`;
+    }
+}
+const result5 = document.getElementById("exercise13");
+result5.innerHTML = numbersPeers(83, 28);
+
+// Leer un número entero de tres dígitos y determinar en qué posición está el mayor dígito.
+
+
+const threeDigits = (numb) => {
+    if(numb < 0){
+        numb = numb * -1;
+    }
+    if(numb < 100 || numb > 999) {
+        return "El número no es válido, por favor ingrese un número de tres digitos";
+    }
+    d = parseInt (numb/10);
+    c = numb % 10;         //Sacamos el tercer dígito
+    a = parseInt(d/10);    //Sacamos el primer dígito
+    b = d%10;              // Nos da el segundo dígito
+
+    if (a > b && a > c ) {
+        return "El primer dígito es el mayor";
+    }
+
+    if (b > a && b > c ) {
+        return "El segundo dígito es el mayor";
+    }else {
+        return "el tercer dígito es el mayor";
+    }
+
+}
+
+const result6 = document.getElementById("exercise17");
+result6.innerHTML = threeDigits(1100);
+
+// Leer un número entero de tres dígitos y determinar si el primer dígito es igual al último.
+
+const oneThree = (number3) => {
+    if(number3 < 0) {
+        number3 = number3 * -1;
+    }
+    if(number3 < 100 || number3 > 999) {
+        return "El número no es válido, por favor ingrese un número de tres digitos";
+    }
+    d = parseInt (number3/10);
+    c = number3 % 10;
+    a = parseInt(d/10);
+    b = d%10;
+
+    if (a === c) {
+        return "El primer y tercer dígito son iguales";
+    }else {
+        return "El primer y tercer dígito no son iguales";
+    }
+}
+
+const result7 = document.getElementById("exercise22");
+result7.innerHTML = oneThree(556);
+
+//Leer un número entero de cuatro dígitos y determinar cuántos dígitos pares tiene.
+
+const fourDigits = (number4) => {
+    if(number4 < 1000 || number4 > 9999) {
+        return "El número no es válido, por favor ingrese un número de cuatro digitos";
+    }
+    d = number4 % 10;
+    e = parseInt (number4/10);
+    f = parseInt (e/10);
+    a = parseInt (f/10);
+    b = f % 10;
+    c = e % 10;
+
+    let count = 0;
+
+    if (d % 2 === 0){
+        count ++;
+    }
+
+    if (c % 2 === 0){
+        count ++;
+    }
+
+    if (b % 2 === 0){
+        count ++;
+    }
+    if (a % 2 === 0){
+        count ++;
+    }
+    return `el número ingresado tiene ${count} números pares`;
+}
+
+const result8 = document.getElementById("exercise27");
+result8.innerHTML = fourDigits(5684);
+ 
 </script>
 </html>
