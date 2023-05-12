@@ -24,6 +24,10 @@
     <div id="exercise22"></div>
     <h2>Exercise 27</h2>
     <div id="exercise27"></div>
+    <h2>Exercise 30</h2>
+    <div id="exercise30"></div>
+    <h2>Exercise 45</h2>
+    <div id="exercise45"></div>
 
 </body>
 <script>
@@ -45,7 +49,7 @@
 const result = document.getElementById("exercise1"); 
 result.innerHTML = compDigits(44);
 
-// Leer un númeri de dos dígitos y determinar si un dígito es multiplo del otro. 
+// Leer un número de dos dígitos y determinar si un dígito es multiplo del otro. 
 
 const multiNums = (numb) => {
 
@@ -203,6 +207,68 @@ const fourDigits = (number4) => {
 
 const result8 = document.getElementById("exercise27");
 result8.innerHTML = fourDigits(5684);
- 
+
+// Leer un número entero de cuatro dígitos y determinar si el segundo dígito es igual al penúltimo.
+
+const thirtyExercise = (number5) => {
+    if (number5 < 0) {
+        number5 = number5 * -1;
+    }
+    if(number5 < 1000 || number5 > 9999) {
+        return "El número no es válido, por favor ingrese un número de cuatro digitos";
+    }
+    const numberFour = number5 % 10; // saca el ultimo dígito
+    const threeDigits = parseInt(number5 / 10); //sacamos los tres primeros dígitos
+    const twoDigits = parseInt(threeDigits / 10); // Sacamos los dos primeros dígitos
+    const numberOne = parseInt(twoDigits / 10); // Sacamos el primero dígito
+    const numbertwo = threeDigits % 10; //Sacamos el tercer dígito
+    const numberThree = twoDigits % 10; //Sacamos el segundo dígito
+
+    if (numbertwo === numberThree) {
+        return "El segundo y tercer dígito son iguales";
+    }else {
+        return "El segundo y tercer dígito no son iguales";
+    }
+}
+const result9  = document.getElementById("exercise30");
+result9.innerHTML = thirtyExercise(-1660);
+
+/* Leer un número entero de 2 dígitos y si es par mostrar en pantalla la suma de sus dígitos, si es
+primo y menor que 20 mostrar en pantalla su último dígito y si es múltiplo de 5 y menor que 100
+mostrar en pantalla el primer dígito.*/
+
+const fortyFive = (number6) => {
+    if (number6 < 0) {
+        number6 = number6 * -1;
+    }
+    if(number6 < 10 || number6 > 99) {
+        return "El número no es válido, por favor ingrese un número de dos digitos";
+    }
+    if (number6 % 2 === 0) {
+        digitOne = parseInt(number6 /10);
+        digitTwo = number6 % 10;
+        let sum = digitOne + digitTwo;
+        return `Este numéro es par y la suma de sus dígitos es ${sum}`;
+    }
+    
+    // Check if is prime number
+    let count = 0;
+        for (let i = 2; i < number6; i++){
+            if (!number6 % i === 0 && number6 < 20){
+                finalDigit = number6 % 10;
+                return `El número ${number6} es primo y su último dígito es ${finalDigit}`;
+            }else if (number6 % 5 === 0 && number6 < 100) {
+                firstDigit = parseInt(number6 / 10);
+                return `El número ${number6} es múltiplo de 5 y su primer dígito es ${firstDigit}`;
+            }else {
+                return "El número no es múltiplo de 5";
+            }
+            
+        }
+}
+
+const result10  = document.getElementById("exercise45");
+result10.innerHTML = fortyFive(19);
+
 </script>
 </html>
