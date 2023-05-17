@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loop exercises </title>
+</head>
+<body>
+    <h1>Loops</h1>
+    <h2>Exercise 1</h2>
+    <div id="exercise1"></div>
+    <h2>Exercise 3</h2>
+    <div id="exercise3"></div>
+    <h2>Exercise 4</h2>
+    <div id="exercise4"></div>
+    <h2>Exercise 6</h2>
+    <div id="exercise6"></div>
+    <h2>Exercise 8</h2>
+    <div id="exercise8"></div>
+    <h2>Exercise 9</h2>
+    <div id="exercise9"></div>
+    <h2>Exercise 14</h2>
+    <div id="exercise14"></div>
+    <script>
+        //1. Leer un número entero y mostrar todos los enteros comprendidos entre 1 y el número leído.
+        const exercise1 = (number) => {
+            if (number < 0){
+                number = number * -1;
+            }
+            if (number % 1 !==0){
+                return "El número ingresado no es entero";
+            }
+
+            let count = [];
+            for (let i = 1; i <= number; i++) {
+                count.push(i);
+            }
+            return count;
+        }
+        const result = document.getElementById("exercise1");
+        result.innerHTML = exercise1(14);
+
+        //3. Leer un número entero y mostrar todos los divisores exactos del número comprendidos entre 1 y el número leído.
+
+        const exercise3 = (number) => {
+            if (number < 0){
+                number = number * -1;
+            }
+            if (number % 1 !==0){
+                return "El número ingresado no es entero";
+            }
+
+            let count = [];
+            for (let i = 1; i <= number; i++) {
+                if(number % i == 0){
+                    count.push(i);
+                }
+            }
+            return count;
+        }
+        const result3 = document.getElementById("exercise3");
+        result3.innerHTML = exercise3(28);
+
+        //4. Leer dos números y mostrar todos los enteros comprendidos entre ellos.
+        const exercise4 = (numberOne, numberTwo) => {
+            if(numberOne >= numberTwo) {
+                return "El número 1 tiene que ser menor que el número 2";
+            }
+            if (numberOne % 1 !== 0 || numberTwo % 1 !== 0) {
+                return "Por favor ingrese números enteros";
+            }
+
+            let count = [];
+            for (let i = numberOne; i<= numberTwo; i++) {
+                count.push(i);
+            }
+            return count    
+        }
+        const result4 = document.getElementById("exercise4");
+        result4.innerHTML = exercise4(6, 60);
+
+        //6. Leer un número entero de tres dígitos y mostrar todos los enteros comprendidos entre 1 y cada uno de los dígitos.
+        const exercise6 = (number) => {
+            if (number < 0){
+                number = number * -1;
+            }
+
+            if (number % 1 !== 0){
+                return "El número ingresado no es entero";
+            }
+
+            if(number <= 100 || number > 999) {
+                return "El número no es válido, por favor ingrese un número de tres digitos";
+            }
+
+            a = parseInt (number / 10);
+            digitThree = number % 10;
+            digitOne = parseInt (a / 10);
+            digitTwo = a % 10;
+            
+            let count = [];
+            for (let i = 1; i<= digitOne;  i++) {
+                count.push(i);
+            }
+
+            let count2 = [];
+            for (let i = 1; i<= digitTwo; i++){
+                count2.push(i);
+            }
+
+            let count3 = [];
+            for (let i = 1; i<= digitThree; i++){
+                count3.push(i);
+            }
+
+            return [count, count2, count3];     
+        }
+        const result5 = document.getElementById("exercise6");
+        result5.innerHTML = exercise6(629);
+
+        // 8. Mostrar en pantalla todos los pares comprendidos entre 20 y 200.
+
+        const exercise8 = (number1, number2) => {
+            if(number1 >= number2) {
+                return "El número 1 tiene que ser menor que el número 2";
+            }
+            if (number1 < 0 || number2 < 0) {
+                number1 = number1 * -1;
+                number2 = number2 * -1;
+            }
+            if (number1 % 1 !== 0 || number2 % 1 !== 0) {
+                return "Por favor ingrese números enteros";
+            }
+            let count = [];
+            for (let i = number1; i <= number2; i++) {
+                if (i % 2 == 0) {
+                    count.push(i);
+                }
+            }
+            return count;
+        }
+        const result6 = document.getElementById("exercise8");
+        result6.innerHTML = exercise8(20, 200)
+
+        // 9. Mostrar en pantalla todos los números terminados en 6 comprendidos entre 25 y 205.
+
+        const exercise9 = (numberOne, numberTwo) => {
+            if(numberOne > numberTwo) {
+                return "El número 1 tiene que ser menor que el número 2";
+            }
+            if (numberOne < 0 || numberTwo < 0) {
+                numberOne = numberOne * -1;
+                numberTwo = numberTwo * -1;
+            }
+            let count = [];
+            for (let i = numberOne; i <= numberTwo; i++) {
+                let finalDigit = i % 10;
+                if (finalDigit === 6) {
+                count.push(i);
+                }
+            } 
+            return count;
+        }
+        const result7 = document.getElementById("exercise9");
+        result7.innerHTML = exercise9(25, 205)
+
+        //14. Mostrar en pantalla los primeros 20 múltiplos de 3.
+
+        const exercise14 = (number1, number2) => {
+            if(number1 > number2) {
+                return "El número 1 tiene que ser menor que el número 2";
+            }
+            if (number1 < 0 || number2 < 0) {
+                number1 = number1 * -1;
+                number2 = number2 * -1;
+            }
+            let count = [];
+            for (let i = number1; i <= number2; i++) {
+                let Multi3 = i % number1;
+                if (Multi3 === 0) {
+                count.push(i);
+                }
+            }
+            return count;
+        }
+        const result8 = document.getElementById("exercise14");
+        result8.innerHTML = exercise14(3, 62);
+    </script>
+</body>
+</html>
