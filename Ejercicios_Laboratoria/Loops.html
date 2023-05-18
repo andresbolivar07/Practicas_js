@@ -22,6 +22,8 @@
     <div id="exercise9"></div>
     <h2>Exercise 14</h2>
     <div id="exercise14"></div>
+    <h2>Exercise 17</h2>
+    <div id="exercise17"></div>
     <script>
         //1. Leer un número entero y mostrar todos los enteros comprendidos entre 1 y el número leído.
         const exercise1 = (number) => {
@@ -186,6 +188,34 @@
         }
         const result8 = document.getElementById("exercise14");
         result8.innerHTML = exercise14(3, 62);
+
+        //17. Promediar los x primeros múltiplos de 2 y determinar si ese promedio es mayor que los y 
+        //    primeros múltiplos de 5 para valores de x y y leídos.
+
+        const exercise17 = (X, Y) => {
+            let sumX = 0;
+            let sumY = 0;
+            const funX = X * 2;
+            const funY = Y * 2;
+            for (let i = 1; i <= funX; i++) {
+                if (i % 2 === 0) {
+                    sumX = sumX + i;
+                }
+            }
+            for (let i = 1; i <= funY; i++) {
+                if ( i % 5 === 0) {
+                    sumY = sumY + i;
+                }
+            }
+            let promX = sumX / X;
+            let promY = sumY / Y;
+            if (promX > promY) {
+                return `El promedio de X es ${promX} y es mayor que el promedio de Y que es ${promY}`
+            }
+            return `El promedio de Y es ${promY} y es mayor que el promedio de X que es ${promX}`
+        }
+        const result9 = document.getElementById("exercise17");
+        result9.innerHTML = exercise17(9, 8);
     </script>
 </body>
 </html>
