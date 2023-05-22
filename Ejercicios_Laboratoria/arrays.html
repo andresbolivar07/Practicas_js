@@ -10,6 +10,8 @@
     <h1>Arrays</h1>
     <h2>Exercise 1</h2>
     <div id="exercise1"></div>
+    <h2>Exercise 2</h2>
+    <div id="exercise2"></div>
 </body>
 <script>
     // 1. Leer 10 enteros, almacenarlos en un vector y determinar en qué posición del vector está el
@@ -17,27 +19,60 @@
 
     const exercise1 = () => {
         //Arreglo para almacenar los números
-        const numeros = [];
+        const numbers = [];
 
         for (let i = 0; i < 10; i++) {
-            let numero = parseInt(prompt("Ingrese un número entero: "));
-            numeros.push(numero);
+            let number = parseInt(prompt("Ingrese un número entero: "));
+            numbers.push(number);
         }
 
             //Encontrar el mayor número y su posición en el arreglo
 
-            let maximo = numeros[0];
-            let posicionMaximo = 0;
+            let maximum = numbers[0];
+            let maximumPosition = 0;
 
-            for (let i = 1; i < numeros.length; i++) {
-                if (numeros[i] > maximo) {
-                    maximo = numeros[i];
-                    posicionMaximo = i;
+            for (let i = 1; i < numbers.length; i++) {
+                if (numbers[i] > maximum) {
+                    maximum = numbers[i];
+                    maximumPosition = i;
                 }
             }
-            return `El número mayor es ${ maximo } y se encuentra en la posición ${ posicionMaximo}`;
+            return `El número mayor es ${ maximum } y se encuentra en la posición ${ maximumPosition}`;
         }
         const result1 = document.getElementById("exercise1");
         result1.innerHTML = exercise1();
+    
+    // 2. Leer 10 enteros, almacenarlos en un vector y determinar en qué posición del vector está el
+    //    mayor número par leído.
+
+    const exercise2 = () => {
+        const numbers = [];
+
+        for (let i = 0; i < 10; i++) {
+            let number = parseInt(prompt("Ingrese un número entero: "));
+            numbers.push(number);
+        }
+
+            //Encontrar el número par mayor y su posición en el arreglo
+
+            let pairMaximum = 0;
+            let pairMaximumPosition = -1;
+
+            for (let i = 1; i < numbers.length; i++) {
+                let currentNumber = numbers[i]
+                if (currentNumber % 2 ===0 && currentNumber > pairMaximum) {
+                    pairMaximum = currentNumber;
+                    pairMaximumPosition = i;
+                }
+            }              
+        
+        if (pairMaximumPosition !== -1) {
+            return `El número par mayor es ${ pairMaximum } y se encuentra en la posición ${ pairMaximumPosition}`;
+        }else {
+            return "No se encontró ningún número par en el vector.";
+        }
+    }
+    const result2 = document.getElementById("exercise2");
+    result2.innerHTML = exercise2();
 </script>
 </html>
