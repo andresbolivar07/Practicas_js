@@ -19,25 +19,24 @@
 
     const exercise1 = () => {
         //Arreglo para almacenar los números
-        const numbers = [];
+        const randomNumbers = [];
 
         for (let i = 0; i < 10; i++) {
-            let number = parseInt(prompt("Ingrese un número entero: "));
-            numbers.push(number);
+            randomNumbers.push(Math.floor(Math.random() * 101));
         }
 
             //Encontrar el mayor número y su posición en el arreglo
 
-            let maximum = numbers[0];
+            let maximum = randomNumbers[0];
             let maximumPosition = 0;
 
-            for (let i = 1; i < numbers.length; i++) {
-                if (numbers[i] > maximum) {
-                    maximum = numbers[i];
+            for (let i = 1; i < randomNumbers.length; i++) {
+                if (randomNumbers[i] > maximum) {
+                    maximum = randomNumbers[i];
                     maximumPosition = i;
                 }
             }
-            return `El número mayor es ${ maximum } y se encuentra en la posición ${ maximumPosition}`;
+            return `El número mayor es ${ maximum } y se encuentra en la posición ${ maximumPosition } y este es el array ${ randomNumbers }.`;
         }
         const result1 = document.getElementById("exercise1");
         result1.innerHTML = exercise1();
@@ -46,11 +45,10 @@
     //    mayor número par leído.
 
     const exercise2 = () => {
-        const numbers = [];
+        const randomNumbers = [];
 
         for (let i = 0; i < 10; i++) {
-            let number = parseInt(prompt("Ingrese un número entero: "));
-            numbers.push(number);
+            randomNumbers.push(Math.floor(Math.random() * 101));
         }
 
             //Encontrar el número par mayor y su posición en el arreglo
@@ -58,16 +56,15 @@
             let pairMaximum = 0;
             let pairMaximumPosition = -1;
 
-            for (let i = 1; i < numbers.length; i++) {
-                let currentNumber = numbers[i]
-                if (currentNumber % 2 ===0 && currentNumber > pairMaximum) {
-                    pairMaximum = currentNumber;
+            for (let i = 1; i < randomNumbers.length; i++) {
+                if (randomNumbers[i] % 2 ===0 && randomNumbers[i] > pairMaximum) {
+                    pairMaximum = randomNumbers[i];
                     pairMaximumPosition = i;
                 }
             }              
         
         if (pairMaximumPosition !== -1) {
-            return `El número par mayor es ${ pairMaximum } y se encuentra en la posición ${ pairMaximumPosition}`;
+            return `El número par mayor es ${ pairMaximum } y se encuentra en la posición ${ pairMaximumPosition } y el array es ${ randomNumbers}.`;
         }else {
             return "No se encontró ningún número par en el vector.";
         }
