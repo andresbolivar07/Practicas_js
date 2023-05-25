@@ -1,106 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arrays exercises</title>
-  </head>
-  <body>
+</head>
+<body>
     <h1>Arrays</h1>
     <h2>Exercise 1</h2>
     <div id="exercise1"></div>
     <h2>Exercise 2</h2>
     <div id="exercise2"></div>
-    <h2>Exercise 5</h2>
-    <div id="exercise5"></div>
-  </body>
-  <script>
+</body>
+<script>
     // 1. Leer 10 enteros, almacenarlos en un vector y determinar en qué posición del vector está el
     //    mayor número leído.
 
     const exercise1 = () => {
-      //Arreglo para almacenar los números
-      const randomNumbers = [];
+        //Arreglo para almacenar los números
+        const randomNumbers = [];
 
-      for (let i = 0; i < 10; i++) {
-        randomNumbers.push(Math.floor(Math.random() * 101));
-      }
-
-      //Encontrar el mayor número y su posición en el arreglo
-
-      let maximum = randomNumbers[0];
-      let maximumPosition = 0;
-
-      for (let i = 0; i < randomNumbers.length; i++) {
-        if (randomNumbers[i] > maximum) {
-          maximum = randomNumbers[i];
-          maximumPosition = i;
+        for (let i = 0; i < 10; i++) {
+            randomNumbers.push(Math.floor(Math.random() * 101));
         }
-      }
-      return `El número mayor es ${maximum} y se encuentra en la posición ${maximumPosition} y este es el array ${randomNumbers}.`;
-    };
-    const result1 = document.getElementById("exercise1");
-    result1.innerHTML = exercise1();
 
+            //Encontrar el mayor número y su posición en el arreglo
+
+            let maximum = randomNumbers[0];
+            let maximumPosition = 0;
+
+            for (let i = 1; i < randomNumbers.length; i++) {
+                if (randomNumbers[i] > maximum) {
+                    maximum = randomNumbers[i];
+                    maximumPosition = i;
+                }
+            }
+            return `El número mayor es ${ maximum } y se encuentra en la posición ${ maximumPosition } y este es el array ${ randomNumbers }.`;
+        }
+        const result1 = document.getElementById("exercise1");
+        result1.innerHTML = exercise1();
+    
     // 2. Leer 10 enteros, almacenarlos en un vector y determinar en qué posición del vector está el
     //    mayor número par leído.
 
     const exercise2 = () => {
-      const randomNumbers = [];
+        const randomNumbers = [];
 
-      for (let i = 0; i < 10; i++) {
-        randomNumbers.push(Math.floor(Math.random() * 101));
-      }
-
-      //Encontrar el número par mayor y su posición en el arreglo
-
-      let pairMaximum = 0;
-      let pairMaximumPosition = -1;
-
-      for (let i = 1; i < randomNumbers.length; i++) {
-        if (randomNumbers[i] % 2 === 0 && randomNumbers[i] > pairMaximum) {
-          pairMaximum = randomNumbers[i];
-          pairMaximumPosition = i;
+        for (let i = 0; i < 10; i++) {
+            randomNumbers.push(Math.floor(Math.random() * 101));
         }
-      }
 
-      if (pairMaximumPosition !== -1) {
-        return `El número par mayor es ${pairMaximum} y se encuentra en la posición ${pairMaximumPosition} y el array es ${randomNumbers}.`;
-      } else {
-        return "No se encontró ningún número par en el vector.";
-      }
-    };
+            //Encontrar el número par mayor y su posición en el arreglo
+
+            let pairMaximum = 0;
+            let pairMaximumPosition = -1;
+
+            for (let i = 1; i < randomNumbers.length; i++) {
+                if (randomNumbers[i] % 2 ===0 && randomNumbers[i] > pairMaximum) {
+                    pairMaximum = randomNumbers[i];
+                    pairMaximumPosition = i;
+                }
+            }              
+        
+        if (pairMaximumPosition !== -1) {
+            return `El número par mayor es ${ pairMaximum } y se encuentra en la posición ${ pairMaximumPosition } y el array es ${ randomNumbers}.`;
+        }else {
+            return "No se encontró ningún número par en el vector.";
+        }
+    }
     const result2 = document.getElementById("exercise2");
     result2.innerHTML = exercise2();
-
-    //5. Almacenar en un vector de 10 posiciones los 10 números primos comprendidos entre 100 y
-    //   300. Luego mostrarlos en pantalla.
-
-    const isPrime = (number) => {
-      for (let i = 2; i < number; i++) {
-        if (number % i === 0) {
-          return false;
-        }
-      }
-      return true;
-    };
-    const exercise5 = () => {
-      primeNumbers = [];
-      let count = 0;
-      for (let i = 100; i < 300; i++) {
-        if (isPrime(i)) {
-          count++;
-          primeNumbers.push(i);
-        }
-
-        if (count == 10) {
-          break;
-        }
-      }
-      return primeNumbers;
-    };
-    const result3 = document.getElementById("exercise5");
-    result3.innerHTML = exercise5();
-  </script>
+</script>
 </html>
