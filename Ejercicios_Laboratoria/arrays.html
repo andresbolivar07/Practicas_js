@@ -12,6 +12,14 @@
     <div id="exercise1"></div>
     <h2>Exercise 2</h2>
     <div id="exercise2"></div>
+    <h2>Exercise 5</h2>
+    <div id="exercise5"></div>
+    <h2>Exercise 10</h2>
+    <div id="exercise10"></div>
+    <h2>Exercise 12</h2>
+    <div id="exercise12"></div>
+    <h2>Exercise 21</h2>
+    <div id="exercise21"></div>
 </body>
 <script>
     // 1. Leer 10 enteros, almacenarlos en un vector y determinar en qué posición del vector está el
@@ -71,5 +79,116 @@
     }
     const result2 = document.getElementById("exercise2");
     result2.innerHTML = exercise2();
+
+//5. Almacenar en un vector de 10 posiciones los 10 números primos comprendidos entre 100 y
+//   300. Luego mostrarlos en pantalla.
+
+const isPrime = (number) => {
+    for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+        return false;
+        }
+    }
+    return true;
+    }
+    const exercise5 = () => {
+    primeNumbers = [];
+    let count = 0;
+    for (let i = 100; i < 300; i++) {
+        if (isPrime(i)) {
+        count++;
+        primeNumbers.push(i);
+            }
+
+        if (count == 10) {
+        break;
+        }
+    }
+    return primeNumbers;
+    }
+
+    const result3 = document.getElementById("exercise5");
+    result3.innerHTML = exercise5();
+
+//10. Leer 10 números enteros, almacenarlos en un vector y determinar en qué posiciones se
+//    encuentran los números con mas de 3 dígitos.
+
+const exercise10 = () => {
+
+    const randomNumbers = [];
+    for (let i = 0; i < 10; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 1500));
+    }
+let threeDigits = [];
+let threeDigitsPosition = [];
+
+    for(let i= 1; i < randomNumbers.length; i++) {
+        if (randomNumbers[i] > 999 ) {
+                threeDigits.push(randomNumbers[i]);
+                threeDigitsPosition.push(i + 1);
+        }
+    }
+    const oneNumber = `El número con más de 3 dígitos es ${ threeDigits } y su posición es ${ threeDigitsPosition }. El array es ${randomNumbers}.`;
+
+    const manyNumbers = `Los números con más de 3 dígitos son ${ threeDigits } y sus posiciones son ${ threeDigitsPosition }. El array es ${randomNumbers}.`; 
+    
+    return threeDigits.length < 2 ? oneNumber : manyNumbers; 
+}
+const result4 = document.getElementById("exercise10");
+result4.innerHTML = exercise10();
+
+// 12. Leer 10 números enteros, almacenarlos en un vector y determinar a cuánto es igual el
+// promedio entero de los datos del vector.
+
+const exercise12 = () => {
+
+    const randomNumbers = [];
+    for (let i = 0; i < 10; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 1500));
+    }
+let totalArray = 0;
+let promtotalArray = 0;
+
+    for (let i = 1; i < randomNumbers.length; i++) {
+            totalArray = totalArray + randomNumbers[i];
+            promtotalArray = parseInt(totalArray / 10);
+    }
+    return `La suma del array es ${ totalArray } y su promedio es ${ promtotalArray }. El array es: ${ randomNumbers }`; 
+}    
+const result5 = document.getElementById("exercise12");
+result5.innerHTML = exercise12();
+
+// 21. Leer 10 números enteros, almacenarlos en un vector y determinar en qué posición está el número cuya suma de dígitos sea la mayor. 
+
+const exercise21 = () => {
+
+    const randomNumbers = [];
+    for (let i = 0; i < 10; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 100));
+    }
+let arraySumDigits = [];
+let sumDigits = 0;
+
+    for(let i = 0; i < randomNumbers.length; i++) {
+        if(randomNumbers[i] > 9) {
+            sumDigits = ((parseInt(randomNumbers[i] / 10)) + (randomNumbers[i] % 10));
+            arraySumDigits.push(sumDigits);
+        }
+    }
+let maxDigit = 0;
+let maxDigitposition = 1; 
+
+    for (let i = 0; i < arraySumDigits.length; i++) {
+        if (arraySumDigits[i] > maxDigit) {
+
+            maxDigit = arraySumDigits[i];
+            maxDigitposition= i + 1;
+        }
+    }
+    return `El dígito cuya suma es mayor es: ${ maxDigit } que está en la posición ${ maxDigitposition } y el array es ${ randomNumbers }`;
+}
+const result6 = document.getElementById("exercise21");
+result6.innerHTML = exercise21();
+
 </script>
 </html>
