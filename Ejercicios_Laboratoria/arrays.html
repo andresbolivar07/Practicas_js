@@ -20,8 +20,28 @@
     <div id="exercise12"></div>
     <h2>Exercise 21</h2>
     <div id="exercise21"></div>
+    <h2>Exercise 23</h2>
+    <div id="exercise23"></div>
+    <h2>Exercise 28</h2>
+    <div id="exercise28"></div>
+    <h2>Exercise 40</h2>
+    <div id="exercise40"></div>
+    <h2>Exercise 49</h2>
+    <div id="exercise49"></div>
 </body>
 <script>
+
+    // Función que evalua si un número es primo
+
+    const isPrime = (number) => {
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
+            return false;
+            }
+        }
+        return true;
+        }
+
     // 1. Leer 10 enteros, almacenarlos en un vector y determinar en qué posición del vector está el
     //    mayor número leído.
 
@@ -83,14 +103,7 @@
 //5. Almacenar en un vector de 10 posiciones los 10 números primos comprendidos entre 100 y
 //   300. Luego mostrarlos en pantalla.
 
-const isPrime = (number) => {
-    for (let i = 2; i < number; i++) {
-        if (number % i === 0) {
-        return false;
-        }
-    }
-    return true;
-    }
+
     const exercise5 = () => {
     primeNumbers = [];
     let count = 0;
@@ -119,8 +132,8 @@ const exercise10 = () => {
     for (let i = 0; i < 10; i++) {
         randomNumbers.push(Math.floor(Math.random() * 1500));
     }
-let threeDigits = [];
-let threeDigitsPosition = [];
+    let threeDigits = [];
+    let threeDigitsPosition = [];
 
     for(let i= 1; i < randomNumbers.length; i++) {
         if (randomNumbers[i] > 999 ) {
@@ -146,8 +159,8 @@ const exercise12 = () => {
     for (let i = 0; i < 10; i++) {
         randomNumbers.push(Math.floor(Math.random() * 1500));
     }
-let totalArray = 0;
-let promtotalArray = 0;
+    let totalArray = 0;
+    let promtotalArray = 0;
 
     for (let i = 1; i < randomNumbers.length; i++) {
             totalArray = totalArray + randomNumbers[i];
@@ -166,8 +179,8 @@ const exercise21 = () => {
     for (let i = 0; i < 10; i++) {
         randomNumbers.push(Math.floor(Math.random() * 100));
     }
-let arraySumDigits = [];
-let sumDigits = 0;
+    let arraySumDigits = [];
+    let sumDigits = 0;
 
     for(let i = 0; i < randomNumbers.length; i++) {
         if(randomNumbers[i] > 9) {
@@ -175,8 +188,8 @@ let sumDigits = 0;
             arraySumDigits.push(sumDigits);
         }
     }
-let maxDigit = 0;
-let maxDigitposition = 1; 
+    let maxDigit = 0;
+    let maxDigitposition = 1; 
 
     for (let i = 0; i < arraySumDigits.length; i++) {
         if (arraySumDigits[i] > maxDigit) {
@@ -189,6 +202,122 @@ let maxDigitposition = 1;
 }
 const result6 = document.getElementById("exercise21");
 result6.innerHTML = exercise21();
+
+//23. Leer 10 números enteros, almacenarlos en un vector y determinar si existe al menos un número repetido.
+
+const exercise23 = () => {
+
+    const randomNumbers = [];
+    for (let i = 0; i < 10; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 100));
+    }
+    for (let i = 0; i < randomNumbers.length; i++) {
+        let ocurrences = 0;
+        const externalNumber = randomNumbers[i];
+        for (let j = 0; j < randomNumbers.length; j++) {
+            const internalNumber = randomNumbers[j];
+            if (externalNumber === internalNumber) {
+                ocurrences++;
+            }
+            if (ocurrences > 1) {
+                return `${randomNumbers.join(', ') }: Se encontró un número repetido: ${ externalNumber}, en la posición ${ i } y la ${ j}.`
+            }
+        }
+    }
+    return `${randomNumbers.join(', ') }: No hay números repetidos`;
+}
+const result7 = document.getElementById("exercise23");
+result7.innerHTML = exercise23();
+
+// 28. Leer 10 números enteros, almacenarlos en un vector y mostrar en pantalla todos los enteros comprendidos entre 1 y cada uno de los números almacenados en el vector.
+
+const exercise28 = () => {
+    const randomNumbers = [];
+    for (let i = 0; i < 10; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 10));
+    }
+
+    let count = [];
+    for(let i = 0; i < randomNumbers.length; i++) {
+        for (let j = 1; j <= randomNumbers[i]; j++) {
+            count.push(j);
+        }
+    }
+    return `Para el array ${randomNumbers.join(', ')}, los números desde  1 hasta el valor de cada posición del array son: ${ count.join(', ')}`;
+}
+const result8 = document.getElementById("exercise28");
+result8.innerHTML = exercise28();
+
+// 40. Leer 10 números enteros, almacenarlos en un vector y determinar cuántos números de los almacenados en dicho vector terminan en 15.
+
+const exercise40 = () => {
+
+    const randomNumbers = [];
+    for (let i = 0; i < 10; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 1000));
+}
+    let counter = 0;
+    let positions= [];
+
+    for (let i = 0; i < randomNumbers.length; i++) {
+        if ( randomNumbers[i] === 15) {
+            counter++;
+            positions.push(i + 1);
+        }
+        if ( randomNumbers[i] > 100) {
+            let finalNumbers = randomNumbers[i] % 100;
+            if (finalNumbers === 15) {
+                counter++;
+                positions.push(i + 1);
+            }
+        }    
+    }
+
+    const NumbersInFifteen = `En el array ${ randomNumbers.join(', ') }, hay ${ counter } números terminados en 15, en las posiciones ${ positions}.`;
+    
+    const noNumbersInFifteen = `en el array ${ randomNumbers.join(', ') } no hay números terminados en 15`;
+    
+    return counter > 0 ? NumbersInFifteen : noNumbersInFifteen; 
+
+}
+const result9 = document.getElementById("exercise40");
+result9.innerHTML = exercise40();
+
+//49. Leer 10 números enteros, almacenarlos en un vector y determinar cuántos números terminan en dígito primo.
+
+
+const exercise49 = () => {
+
+    const randomNumbers = [];
+    for (let i = 0; i < 10; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 1000));
+    }
+
+    let counter = 0;
+    let positions= [];
+
+    for(let i = 0; i < randomNumbers.length; i++) {
+        if (randomNumbers[i] < 10) {
+            if(isPrime(randomNumbers[i])) {
+                counter++;
+                positions.push(i + 1);
+            }    
+        }
+        if(randomNumbers[i] > 10){
+            let lastNumber = randomNumbers[i] % 10;
+            if (isPrime(lastNumber)) {
+            counter++;
+            positions.push(i + 1);
+            }
+        }
+    } 
+    const primes = `En el array ${ randomNumbers.join(' ,') }, hay ${ counter } números que terminan en un número primo y están en las posociones ${ positions }.`
+    const noPrimes = `El array ${ randomNumbers.join(' ,') }, no tiene números cuyo ultimo dígito termine en un número primo.`      
+
+    return counter > 0 ? primes : noPrimes;
+}
+const result10 = document.getElementById("exercise49");
+result10.innerHTML = exercise49();
 
 </script>
 </html>
