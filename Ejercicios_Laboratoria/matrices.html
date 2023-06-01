@@ -9,12 +9,27 @@
 <body>
     <h1>Matrices</h1>
     <h2>Exercise 1</h2>
-    <div id="exercise1"></div>  
+    <div id="exercise1"></div>
+    <div id="arr-exercise1"></div>
+    <h2>Exercise 3</h2>
+    <div id="exercise3"></div>  
+    <div id="arr-exercise3"></div>
+    <h2>Exercise 5</h2>
+    <div id="exercise5"></div>  
+    <div id="arr-exercise5"></div>
+    <h2>Exercise 9</h2>
+    <div id="exercise9"></div>  
+    <div id="arr-exercise9"></div>
+    <h2>Exercise 17</h2>
+    <div id="exercise17"></div>  
+    <div id="arr-exercise17"></div>
 </body>
 <script>
     // 1. Leer una matriz 4x4 entera y determinar en qué fila y en qué columna se encuentra el número mayor.
 
     const exercise1 = () => {
+
+        let arrExercise1 = "";
 
         let matriz = [];
             for (let i = 0; i < 4; i++) {
@@ -22,9 +37,9 @@
                 for (let j = 0; j < 4; j++) {
                     matriz[i][j] = Math.floor(Math.random() * 100);
                 }
-                document.writeln(`[${matriz[i]}] <br/>`);
+                arrExercise1 += `[${matriz[i]}] <br/>`;
             }
-            
+            document.getElementById('arr-exercise1').innerHTML = arrExercise1;
 
             let mayorNumber = 0;
             let row = 0;
@@ -43,6 +58,160 @@
     }
     const result1 = document.getElementById("exercise1");
     result1.innerHTML = exercise1();
-    
+
+    // 3. Leer una matriz 3x4 entera y determinar en qué posiciones exactas se encuentran los números pares.
+
+    const exercise3 = () => {
+
+        let arrExercise3 = "";
+
+        let matriz = [];
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 4; j++) {
+                    matriz[i][j] = Math.floor(Math.random() * 100);
+                }
+                arrExercise3 += (`[${matriz[i]}] <br/>`);
+            }
+            document.getElementById('arr-exercise3').innerHTML = arrExercise3;
+
+            let counter = 0;
+            let pairNumbers = [];
+            let row = 0;
+            let column = 0;
+            let positions = [];
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 4; j++) {
+                    if (matriz[i][j] % 2 === 0) {
+                        pairNumbers.push(matriz[i][j]);
+                        row = i +1;
+                        column = j +1
+                        positions[counter] = `[${row} , ${column}]`;
+                        counter ++;
+                    } 
+                }
+            }
+            const pairs = `Los números pares son: ${ pairNumbers.join(', ') } y estan en las posiciones ${positions.join('; ')} `
+            const noPairs = `En la matriz no hay números pares`
+            return counter > 0 ? pairs : noPairs;
+    }
+    const result2 = document.getElementById("exercise3");
+    result2.innerHTML = exercise3();
+
+    //5. Leer una matriz 4x3 entera, calcular la suma de los elementos de cada fila y determinar cuál es la fila que tiene la mayor suma.
+
+    const exercise5 = () => {
+
+        let arrExercise5 = "";
+        let matriz = [];
+            for (let i = 0; i < 4; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = Math.floor(Math.random() * 100);
+                }
+                arrExercise5 += (`[${matriz[i]}] <br/>`);
+            }
+            document.getElementById('arr-exercise5').innerHTML = arrExercise5;
+
+            const theSums = [];
+
+            for (let i = 0; i < 4; i++) {
+                let Sums = 0;
+                for (let j = 0; j < 3; j++) {
+                    Sums = Sums + matriz[i][j];
+                }
+                theSums.push(Sums);
+            }
+            let maximum = theSums[0];
+            let maximumPosition = 0;
+
+            for (let i = 1; i < theSums.length; i++) {
+                if (theSums[i] > maximum) {
+                    maximum = theSums[i];
+                    maximumPosition = i +1;
+                }
+            }
+            return `Las sumas de las filas de la matriz es ${ theSums.join(', ')} la suma más alta es ${ maximum } y corresponde a la fila ${ maximumPosition}`;
+    }
+
+    const result5 = document.getElementById("exercise5");
+    result5.innerHTML = exercise5();
+
+    // 9. Leer una matriz 3x4 entera y determinar cuántos de los números almacenados son primos y terminan en 3.
+
+    const isPrime = (number) => {
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
+            return false;
+            }
+        }
+        return true;
+        }
+        
+    const exercise9 = () => {
+
+        let arrExercise9 = "";
+        let matriz = [];
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 4; j++) {
+                    matriz[i][j] = Math.floor(Math.random() * 100);
+                }
+                arrExercise9 += (`[${matriz[i]}] <br/>`);
+            }
+            document.getElementById('arr-exercise9').innerHTML = arrExercise9;
+
+            let finalPrime = [];
+            let counter = 0;
+            let digit = 0;
+
+            for (let i = 0; i < 3; i++) {
+                for (j = 0; j < 4; j++) {
+                    digit = matriz[i][j] < 10 ? matriz[i][j] : matriz[i][j] % 10;
+                    
+                    if (isPrime(matriz[i][j]) && (digit === 3)) {
+                            finalPrime.push(matriz[i][j]);
+                            counter ++;
+                    }
+                }
+            }
+            const primesNumbers = `La matriz tiene los siguientes números primos y terminados en 3: ${finalPrime.join(', ')}`;
+            const noPrimesNumbers = `La matriz no tiene números primos ni terminados en 3.`;
+            return counter > 0 ? primesNumbers : noPrimesNumbers;
+    }
+    const result9 = document.getElementById("exercise9");
+    result9.innerHTML = exercise9();
+
+    //17. Leer una matriz 5x4 entera y determinar cuántos múltiplos de 5 hay almacenados en ella.
+
+    const exercise17 = () => {
+
+        let arrExercise17 = "";
+        let matriz = [];
+            for (let i = 0; i < 5; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 4; j++) {
+                    matriz[i][j] = Math.floor(Math.random() * 100);
+                }
+                arrExercise17 += (`[${matriz[i]}] <br/>`);
+            }
+            document.getElementById('arr-exercise17').innerHTML = arrExercise17;
+            
+            let count = 0;
+            let multipleNumbers = [];
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 4; j++) {
+                    if (matriz[i][j] % 5 ===0 ) {
+                        multipleNumbers.push(matriz[i][j]);
+                        count ++;
+                    }
+                }
+            }
+            const multiples = `En la matriz hay ${ count } múltiplos de 5 y son los números: ${ multipleNumbers.join(', ') }`;
+            const noMultiples = 'En la matriz no hay números que sean múltiplos de 5';
+            return count > 0 ? multiples : noMultiples;
+    }
+    const result17 = document.getElementById("exercise17");
+    result17.innerHTML = exercise17();
 </script>
 </html>
