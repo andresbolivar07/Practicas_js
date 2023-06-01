@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrices</title>
+</head>
+<body>
+    <h1>Matrices</h1>
+    <h2>Exercise 1</h2>
+    <div id="exercise1"></div>  
+</body>
+<script>
+    // 1. Leer una matriz 4x4 entera y determinar en qué fila y en qué columna se encuentra el número mayor.
+
+    const exercise1 = () => {
+
+        let matriz = [];
+            for (let i = 0; i < 4; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 4; j++) {
+                    matriz[i][j] = Math.floor(Math.random() * 100);
+                }
+                document.writeln(`[${matriz[i]}] <br/>`);
+            }
+            
+
+            let mayorNumber = 0;
+            let row = 0;
+            let column = 0;
+
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    if (matriz[i][j] > mayorNumber) {
+                        mayorNumber = matriz[i][j];
+                        row = i +1;
+                        column = j +1;
+                    }
+                }
+            }
+            return `El número mayor es ${ mayorNumber} y está en la posición (${row}, ${column}).`  
+    }
+    const result1 = document.getElementById("exercise1");
+    result1.innerHTML = exercise1();
+    
+</script>
+</html>
