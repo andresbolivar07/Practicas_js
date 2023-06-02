@@ -10,19 +10,51 @@
     <h1>Matrices</h1>
     <h2>Exercise 1</h2>
     <div id="exercise1"></div>
+    <br/>
     <div id="arr-exercise1"></div>
     <h2>Exercise 3</h2>
     <div id="exercise3"></div>  
+    <br/>
     <div id="arr-exercise3"></div>
     <h2>Exercise 5</h2>
     <div id="exercise5"></div>  
+    <br/>
     <div id="arr-exercise5"></div>
     <h2>Exercise 9</h2>
-    <div id="exercise9"></div>  
+    <div id="exercise9"></div>
+    <br/>  
     <div id="arr-exercise9"></div>
     <h2>Exercise 17</h2>
-    <div id="exercise17"></div>  
+    <div id="exercise17"></div>
+    <br/>  
     <div id="arr-exercise17"></div>
+    <h2>Exercise 22</h2>
+    <div id="exercise22"></div>
+    <br/>  
+    <div id="arr-exercise22"></div>
+    <br/>
+    <div id="arr-exercise22-1"></div>
+    <h2>Exercise 27</h2>
+    <div id="exercise27"></div>
+    <br/>  
+    <div id="arr-exercise27"></div>
+    <br/>
+    <div id="arr-exercise27-1"></div>
+    <h2>Exercise 30</h2>
+    <div id="exercise30"></div>
+    <br/>  
+    <div id="arr-exercise30"></div>
+    <h2>Exercise 38</h2>
+    <div id="exercise38"></div>
+    <br/>  
+    <div id="arr-exercise38"></div>
+    <br/>
+    <div id="arr-exercise38-1"></div>
+    <h2>Exercise 49</h2>
+    <div id="exercise49"></div>
+    <br/>  
+    <div id="arr-exercise49"></div>
+    
 </body>
 <script>
     // common functions
@@ -197,5 +229,196 @@
     }
     const result17 = document.getElementById("exercise17");
     result17.innerHTML = exercise17();
+
+    // 22. Leer dos matrices 4x5 enteras y determinar si el número mayor almacenado en la primera está en la segunda.
+
+    const exercise22 = () => {
+
+        let matriz1 = generateRandomArray (4, 5);
+        let matriz2 = generateRandomArray (4, 5);
+
+        document.getElementById('arr-exercise22').innerHTML = ArrayToString(matriz1);
+        document.getElementById('arr-exercise22-1').innerHTML = ArrayToString(matriz2);
+
+        let mayorNumber = 0;
+        let counter = 0;
+
+        for (let i = 0; i < 4; i++) {
+            for ( let j = 0; j < 5; j++) {
+                if (matriz1[i][j] > mayorNumber) {
+                    mayorNumber = matriz1[i][j];
+                }
+            }
+        }
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (matriz2[i][j] === mayorNumber) {
+                    counter ++;
+                }
+            }
+        }
+
+        const mayorComparative = `El número mayor de la matriz No 1 es: ${ mayorNumber} y está repetido en la matriz No 2 un total de  ${ counter } veces.`;
+        const noMayorComparative = `El número mayor de l matiz No 1 es : ${ mayorNumber}. Este número no esta repetido en la matriz No 2.`;
+
+        return counter > 0 ? mayorComparative : noMayorComparative;
+
+    }
+
+    const result22 = document.getElementById("exercise22");
+    result22.innerHTML = exercise22();
+
+    // 27. Leer dos matrices 4x5 enteras y determinar si la cantidad de números primos almacenados en una matriz es igual a la cantidad de números primos almacenados en la otra matriz.
+
+    const exercise27 = () => {
+
+        let matriz1 = generateRandomArray (4, 5);
+        let matriz2 = generateRandomArray (4, 5);
+
+        document.getElementById('arr-exercise27').innerHTML = ArrayToString(matriz1);
+        document.getElementById('arr-exercise27-1').innerHTML = ArrayToString(matriz2);
+    
+    const primeNumbers1 = [];
+    const primeNumbers2 = [];
+    let counter = 0;
+    let counter2 = 0;
+
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 5; j++) {
+            if(isPrime(matriz1[i][j])) {
+                primeNumbers1.push(matriz1[i][j]);
+                counter ++;
+            }
+        }
+    }
+
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 5; j++) {
+            if(isPrime(matriz2[i][j])) {
+                primeNumbers2.push(matriz2[i][j]);
+                counter2 ++;
+            }
+        }
+    }
+    if (counter === counter2) {
+        return `La matriz No 1 tiene los siguientes números primos ${ primeNumbers1.join(', ') }; la matriz No 2 tiene los números primos ${ primeNumbers2.join(', ') } y tienen la misma cantidad de números primos.`;
+    }
+    return `La matriz No 1 tiene los siguientes números primos ${ primeNumbers1.join(', ') }; la matriz No 2 tiene los números primos ${ primeNumbers2.join(', ') } y no tienen la misma cantidad de números primos.`;
+    
+    }
+    const result27 = document.getElementById("exercise27");
+    result27.innerHTML = exercise27();
+
+    //30. Leer una matriz 4x6 entera y determinar cuántas veces está en ella el número menor.
+
+    const exercise30 = () => {
+
+        let matriz = generateRandomArray(4, 6);
+        document.getElementById('arr-exercise30').innerHTML = ArrayToString(matriz);
+
+        let lessNumber = 0;
+        let coincidences = 0;
+
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 6; j ++) {
+                if(i === 0 && j === 0) {
+                    lessNumber = matriz[i][j];
+                    coincidences = -1;          // Evitar que se cuente el número menor dos veces cuando este es el primer número de la matriz.
+                }
+                if (matriz[i][j] < lessNumber) {
+                    lessNumber = matriz[i][j];
+                    coincidences = 0;
+
+                }else if (lessNumber === matriz[i][j]) {
+                    coincidences ++;
+                }
+            }
+        }
+
+        const finalLessNumber = `El número menor es ${ lessNumber }, y está repetido ${ coincidences } veces`;
+        const falseResult = `El número menor es ${ lessNumber } y no está repetido en la matriz`;
+        return coincidences > 0 ? finalLessNumber : falseResult;
+    }
+
+    const result30 = document.getElementById("exercise30");
+    result30.innerHTML = exercise30();
+
+    // 38. Leer dos matrices 4x6 enteras y determinar si el mayor número primo de una matriz está repetido en la otra matriz.
+
+    const exercise38 = () => {
+
+        let matriz1 = generateRandomArray (4, 6);
+        let matriz2 = generateRandomArray (4, 6);
+
+        document.getElementById('arr-exercise38').innerHTML = ArrayToString(matriz1);
+        document.getElementById('arr-exercise38-1').innerHTML = ArrayToString(matriz2);
+
+        let primeNumbers = [];
+        let mayorPrimeNumber = 0;
+        let repeatNumber = 0;
+
+        for (let i = 0; i < 4; i++) {
+            for (j = 0; j < 6; j++) {
+                if (isPrime(matriz1[i][j])) {
+                    primeNumbers.push(matriz1[i][j]);
+                }
+            }
+        }
+        for (let i = 0; i < primeNumbers.length; i++) {
+            if (primeNumbers[i] > mayorPrimeNumber) {
+                mayorPrimeNumber = primeNumbers[i];
+            }
+        }
+
+        for (let i = 0; i < 4; i++) {
+            for (j = 0; j < 6; j++) {
+                if (matriz2[i][j] === mayorPrimeNumber) {
+                    repeatNumber ++;
+                }
+            }
+        }
+
+        const positivePrime = `El número mayor primo de la matriz No. 1 es ${ mayorPrimeNumber } y está repetido en la matriz 2, ${ repeatNumber } veces`;
+        const negativePrime = `El número mayor primo de la matriz No. 1 es ${ mayorPrimeNumber } y no está repetido en la matriz No. 2`
+        
+        return repeatNumber > 0 ? positivePrime : negativePrime
+    }
+
+    const result38 = document.getElementById("exercise38");
+    result38.innerHTML = exercise38();
+
+    // 49. Leer una matriz 3x3 entera y determinar si el promedio de todos los datos almacenados en ella se encuentra también almacenado.
+
+    const exercise49 = () => {
+
+        let matriz = generateRandomArray(3, 3);
+        document.getElementById('arr-exercise49').innerHTML = ArrayToString(matriz);
+
+        let totalArray = 0;
+        let averageTotalArray = 0;
+        let counter = 0;
+
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                if(totalArray = totalArray + matriz[i][j]) { 
+                averageTotalArray = parseInt(totalArray / 9);
+                }
+            }
+        }
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                if(averageTotalArray === matriz[i][j]) {
+                    counter ++;    
+                }
+            }
+        }
+        
+        comparedAverage = `El promedio de la matriz es ${ averageTotalArray } y está repetido en la matriz ${ counter } veces`;
+        noComparedAverage = `El promedio de la matriz es ${ averageTotalArray } y no está repetido en la matriz`;
+        return counter > 0 ? comparedAverage : noComparedAverage;
+    }
+
+    const result49 = document.getElementById("exercise49");
+    result49.innerHTML = exercise49();
 </script>
 </html>
