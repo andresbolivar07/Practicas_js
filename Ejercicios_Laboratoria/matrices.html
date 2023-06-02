@@ -25,21 +25,48 @@
     <div id="arr-exercise17"></div>
 </body>
 <script>
+    // common functions
+
+    //is prime
+
+    const isPrime = (number) => {
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
+            return false;
+            }
+        }
+        return true;
+        }
+
+    // generate random array
+    const generateRandomArray = (rows, columns) => {
+
+        let matriz = [];
+
+        for (let i = 0; i < rows; i++) {
+            matriz[i] = [];
+            for (let j = 0; j < columns; j++) {
+                matriz[i][j] = Math.floor(Math.random() * 100);
+            }
+        }
+        return matriz;
+    }
+
+    const ArrayToString = (arr) => {
+        let stringArray = '';
+        for(i = 0; i < arr.length; i++){
+            stringArray += (`[${arr[i]}] <br/>`);
+        }
+        return stringArray;
+    }
+
+
     // 1. Leer una matriz 4x4 entera y determinar en qué fila y en qué columna se encuentra el número mayor.
 
     const exercise1 = () => {
 
-        let arrExercise1 = "";
-
-        let matriz = [];
-            for (let i = 0; i < 4; i++) {
-                matriz[i] = [];
-                for (let j = 0; j < 4; j++) {
-                    matriz[i][j] = Math.floor(Math.random() * 100);
-                }
-                arrExercise1 += `[${matriz[i]}] <br/>`;
-            }
-            document.getElementById('arr-exercise1').innerHTML = arrExercise1;
+        let matriz = generateRandomArray(4, 4);
+        document.getElementById('arr-exercise1').innerHTML = ArrayToString(matriz);
 
             let mayorNumber = 0;
             let row = 0;
@@ -63,18 +90,9 @@
 
     const exercise3 = () => {
 
-        let arrExercise3 = "";
-
-        let matriz = [];
-            for (let i = 0; i < 3; i++) {
-                matriz[i] = [];
-                for (let j = 0; j < 4; j++) {
-                    matriz[i][j] = Math.floor(Math.random() * 100);
-                }
-                arrExercise3 += (`[${matriz[i]}] <br/>`);
-            }
-            document.getElementById('arr-exercise3').innerHTML = arrExercise3;
-
+        let matriz = generateRandomArray(3, 4);
+        document.getElementById('arr-exercise3').innerHTML = ArrayToString(matriz);
+        
             let counter = 0;
             let pairNumbers = [];
             let row = 0;
@@ -102,16 +120,8 @@
 
     const exercise5 = () => {
 
-        let arrExercise5 = "";
-        let matriz = [];
-            for (let i = 0; i < 4; i++) {
-                matriz[i] = [];
-                for (let j = 0; j < 3; j++) {
-                    matriz[i][j] = Math.floor(Math.random() * 100);
-                }
-                arrExercise5 += (`[${matriz[i]}] <br/>`);
-            }
-            document.getElementById('arr-exercise5').innerHTML = arrExercise5;
+        let matriz = generateRandomArray(4, 3);
+        document.getElementById('arr-exercise5').innerHTML = ArrayToString(matriz);
 
             const theSums = [];
 
@@ -138,28 +148,11 @@
     result5.innerHTML = exercise5();
 
     // 9. Leer una matriz 3x4 entera y determinar cuántos de los números almacenados son primos y terminan en 3.
-
-    const isPrime = (number) => {
-        for (let i = 2; i < number; i++) {
-            if (number % i === 0) {
-            return false;
-            }
-        }
-        return true;
-        }
         
     const exercise9 = () => {
 
-        let arrExercise9 = "";
-        let matriz = [];
-            for (let i = 0; i < 3; i++) {
-                matriz[i] = [];
-                for (let j = 0; j < 4; j++) {
-                    matriz[i][j] = Math.floor(Math.random() * 100);
-                }
-                arrExercise9 += (`[${matriz[i]}] <br/>`);
-            }
-            document.getElementById('arr-exercise9').innerHTML = arrExercise9;
+        let matriz = generateRandomArray(3, 4);
+        document.getElementById('arr-exercise9').innerHTML = ArrayToString(matriz);
 
             let finalPrime = [];
             let counter = 0;
@@ -167,8 +160,7 @@
 
             for (let i = 0; i < 3; i++) {
                 for (j = 0; j < 4; j++) {
-                    digit = matriz[i][j] < 10 ? matriz[i][j] : matriz[i][j] % 10;
-                    
+                    digit = matriz[i][j] < 10 ? matriz[i][j] : matriz[i][j] % 10;               
                     if (isPrime(matriz[i][j]) && (digit === 3)) {
                             finalPrime.push(matriz[i][j]);
                             counter ++;
@@ -186,16 +178,8 @@
 
     const exercise17 = () => {
 
-        let arrExercise17 = "";
-        let matriz = [];
-            for (let i = 0; i < 5; i++) {
-                matriz[i] = [];
-                for (let j = 0; j < 4; j++) {
-                    matriz[i][j] = Math.floor(Math.random() * 100);
-                }
-                arrExercise17 += (`[${matriz[i]}] <br/>`);
-            }
-            document.getElementById('arr-exercise17').innerHTML = arrExercise17;
+        let matriz = generateRandomArray(5, 4);
+        document.getElementById('arr-exercise17').innerHTML = ArrayToString(matriz);
             
             let count = 0;
             let multipleNumbers = [];
