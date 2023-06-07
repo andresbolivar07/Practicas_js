@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices Function</title>
+</head>
+<body>
+    <h1>Functions</h1>
+    <h2>Exercise 1</h2>
+    <div id="exercise1"></div>
+    <br/>
+    <h1>Functions</h1>
+    <h2>Exercise 3</h2>
+    <div id="exercise3"></div>
+    <br/>
+    <h1>Functions</h1>
+    <h2>Exercise 5</h2>
+    <div id="exercise5"></div>
+    <br/>
+</body>
+<script>
+    // Functions
+
+    // Función para crear un número aleatório.
+
+    const generateRandomNumber = () => Math.floor(Math.random() * 1000);
+        
+    // Función para retornar el último dígito de un número
+
+    const lastDigit = (number) => number %10;
+
+    // Función para contar dígitos de un número.
+
+    const numberCounter = (number) => {
+
+        if ( number === 0) {
+            return 1;
+        }
+        if (number < 0 ) {
+            number = -number;
+        }
+        let numberDigits = 0;
+        
+        while (number >= 1) {
+            number = parseInt(number/10);
+            numberDigits++;
+        }
+        return numberDigits;
+    }
+
+
+    //Función para evaluar si un número es primo.
+
+    const isPrime = (number) => {
+
+        if(number === 0){
+            return false;
+        }
+
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
+            return false;
+            }
+        }
+        return true;
+        }
+        
+    // 1. Construir una función que reciba como parámetro un entero y retorne su último dígito.
+
+    const exercise1 = () => {
+
+        let number = generateRandomNumber();
+
+        const option1 = `El número generado es ${ number } y sú ultimo dígito es: ${ lastDigit(number) }`;
+        const option2 = `El número tiene un sólo dígito y es: ${number}`;
+
+        return number > 10 ? option1  : option2;
+    }
+    const result1 = document.getElementById("exercise1");
+    result1.innerHTML = exercise1();
+
+    // 3. Construir una función que reciba como parámetro un entero y retorne la cantidad de dígitos.
+
+    const exercise3 = () => {
+
+        let number = generateRandomNumber();
+
+        return `El número generado es ${ number } y tiene ${ numberCounter(number) } de dígitos`;
+
+    }
+    const result3 = document.getElementById("exercise3");
+    result3.innerHTML = exercise3();
+
+    // 5. Construir una función que reciba como parámetro un entero y retorne la cantidad de dígitos primos.
+
+    const exercise5 = () => {
+
+        let number = generateRandomNumber();
+        const originalNumber = number;
+        let lastNumber = 0;
+        let countPrimeNumbers = 0;
+        let primeNumbers = [];
+
+        while (number > 0) {
+            lastNumber = lastDigit(number);
+            if(isPrime(lastNumber)){
+                countPrimeNumbers++;
+                primeNumbers.push(lastNumber);
+            }
+            number = parseInt(number / 10);
+        }
+
+        return `El número generado es ${ originalNumber } y tiene ${ countPrimeNumbers } digitos primos:  ${ primeNumbers.join(', ') }`;
+    }
+    const result5 = document.getElementById("exercise5");
+    result5.innerHTML = exercise5();
+</script>
+</html>
