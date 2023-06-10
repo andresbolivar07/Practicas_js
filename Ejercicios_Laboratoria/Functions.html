@@ -32,6 +32,10 @@
     <h2>Exercise 33</h2>
     <div id="exercise33"></div>
     <br/>
+    <h2>Exercise 38</h2>
+    <div id="exercise38"></div>
+    <br/>
+    
 </body>
 <script>
     // Functions
@@ -140,6 +144,29 @@
         }
     }
     return maximum;
+    }
+
+    // Función para generar una matriz
+
+    const generateRandomArrays = (rows, columns) => {
+
+        let matriz = [];
+
+        for (let i = 0; i < rows; i++) {
+            matriz[i] = [];
+            for (let j = 0; j < columns; j++) {
+                matriz[i][j] = Math.floor(Math.random() * 100);
+            }
+        }
+        return matriz;
+    }
+    
+    const ArrayToString = (arr) => {
+        let stringArray = '';
+        for(i = 0; i < arr.length; i++){
+            stringArray += (`[${arr[i]}] <br/>`);
+        }
+        return stringArray;
     }
 
     // 1. Construir una función que reciba como parámetro un entero y retorne su último dígito.
@@ -269,5 +296,37 @@
     }
     const result33 = document.getElementById("exercise33");
     result33.innerHTML = exercise33();
+
+    //38. Construir una función que reciba como parámetro un vector de 10 posiciones enteras y retorne la cantidad de números terminados en 3 que contiene el vector.
+
+    const exercise38 = () => {
+
+        let array = randomArrayGenerator();
+        let lastDigitNumber = 0;
+        let numbers = [];
+        let counterNumbers= 0;
+
+        for (let i = 0; i < array.length; i++) {
+            if(array[i] > 10 ) {
+                lastDigitNumber = lastDigit(array[i]);
+                if(lastDigitNumber === 3) {
+                numbers.push(array[i]);
+                counterNumbers++;
+                }
+            }
+            if(array[i] < 10 && array[i] === 3){
+                numbers.push(array[i]);
+                counterNumbers++;
+            }
+        }
+    let option1 = `En el array ${ array.join(', ') } hay ${ counterNumbers } terminados en 3 y son ${ numbers.join(', ') }`;
+        
+    let option2 = `En el array ${ array.join(', ') } no hay números terminados en 3`;
+    
+    return counterNumbers > 0 ? option1 : option2;
+    }
+    const result38 = document.getElementById("exercise38");
+    result38.innerHTML = exercise38();
+
 </script>
 </html>
