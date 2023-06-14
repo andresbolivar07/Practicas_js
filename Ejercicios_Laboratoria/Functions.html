@@ -35,7 +35,10 @@
     <h2>Exercise 38</h2>
     <div id="exercise38"></div>
     <br/>
-    
+    <h2>Exercise 45</h2>
+    <div id="exercise45"></div>
+    <br/>  
+    <div id="arr-exercise45"></div>
 </body>
 <script>
     // Functions
@@ -327,6 +330,33 @@
     }
     const result38 = document.getElementById("exercise38");
     result38.innerHTML = exercise38();
+
+    // 45. Construir una función que reciba como parámetros una matriz 4x4 entera y un valor entero y retorne la cantidad de veces que se repite dicho valor en la matriz.
+
+    const exercise45 = () => {
+
+        let number = generateRandomNumber();
+        let matriz = generateRandomArrays(4, 4);
+        document.getElementById('arr-exercise45').innerHTML = ArrayToString(matriz);
+        let repeatNumberCounter = 0;
+
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                if (number === matriz[i][j]) {
+                    repeatNumberCounter++;
+                }
+            }
+        }
+
+    let option1 = `El número entero generado es ${ number } y se repite en el array ${ repeatNumberCounter } veces.`;
+        
+    let option2 = `El número entero generado es ${ number } y no se repite en el array`;
+    
+    return repeatNumberCounter > 0 ? option1 : option2;
+    
+    }
+    const result45 = document.getElementById("exercise45");
+    result45.innerHTML = exercise45();
 
 </script>
 </html>
