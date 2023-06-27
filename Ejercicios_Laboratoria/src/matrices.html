@@ -56,19 +56,10 @@
     <div id="arr-exercise49"></div>
     
 </body>
-<script>
+<script type="module">
     // common functions
 
-    //is prime
-
-    const isPrime = (number) => {
-        for (let i = 2; i < number; i++) {
-            if (number % i === 0) {
-            return false;
-            }
-        }
-        return true;
-        }
+    import { isPrime } from './functions.js';
 
     // generate random array
     const generateRandomArray = (rows, columns) => {

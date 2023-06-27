@@ -29,18 +29,9 @@
     <h2>Exercise 49</h2>
     <div id="exercise49"></div>
 </body>
-<script>
+<script type="module">
 
-    // Función que evalua si un número es primo
-
-    const isPrime = (number) => {
-        for (let i = 2; i < number; i++) {
-            if (number % i === 0) {
-            return false;
-            }
-        }
-        return true;
-        }
+    import { isPrime } from './functions.js';
 
     // 1. Leer 10 enteros, almacenarlos en un vector y determinar en qué posición del vector está el
     //    mayor número leído.
