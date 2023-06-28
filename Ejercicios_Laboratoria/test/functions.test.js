@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { ageInSeconds, tempFarenheit, netIncome, isPrime } from '../src/functions.js'
+import { ageInSeconds, tempFarenheit, netIncome, isPrime, lastDigit } from '../src/functions.js'
 
 describe('ageInSeconds', () => {
     it('should be a function', () => {
@@ -46,5 +46,14 @@ describe('isPrime', () => {
     it('is not prime number', () => {
         expect(isPrime(0)).toBe(false);
     });
+});
+
+describe('lastDigit', () => {
+    it('should be a function', () => {
+        expect(typeof lastDigit).toBe('function');
+    });
+    it('the last digit number', () => {
+        expect(lastDigit(87)).toBe(7);
+    })   
 });
 

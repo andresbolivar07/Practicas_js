@@ -22,4 +22,6 @@ const isPrime = (number) => {
     return true;
     }
 
-export {ageInSeconds, tempFarenheit, netIncome, isPrime};
+const lastDigit = (number) => number %10;
+
+export {ageInSeconds, tempFarenheit, netIncome, isPrime, lastDigit};
