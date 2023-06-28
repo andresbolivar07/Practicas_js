@@ -24,4 +24,83 @@ const isPrime = (number) => {
 
 const lastDigit = (number) => number %10;
 
-export {ageInSeconds, tempFarenheit, netIncome, isPrime, lastDigit};
+const numberCounter = (number) => {
+
+    if ( number === 0) {
+        return 1;
+    }
+    if (number < 0 ) {
+        number = number * -1;
+    }
+    let numberDigits = 0;
+    
+    while (number >= 1) {
+        number = parseInt(number/10);
+        numberDigits++;
+    }
+    return numberDigits;
+}
+
+const randomArrayGenerator = () => { 
+    
+    const randomNumbers = [];
+
+    for (let i = 0; i < 10; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 100));
+    }
+    return randomNumbers;
+}
+
+const generateRandomArrays = (rows, columns) => {
+
+    let matriz = [];
+
+    for (let i = 0; i < rows; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < columns; j++) {
+            matriz[i][j] = Math.floor(Math.random() * 100);
+        }
+    }
+    return matriz;
+}
+
+const numberFactorial = (number) => {
+    if ( number === 0) {
+        return 1;
+    }
+    if (number < 0 ) {
+        number = number * -1;
+    }
+    
+    let multiplication = 1;
+
+    for(let i = 1; i <= number; i++) {
+        multiplication = multiplication * i
+    }
+    return multiplication;
+}
+
+const multipleNumbers = (number1, number2) => {
+
+    if(number2 % number1 ===0) {
+        return true;
+    }
+    return false;
+}
+
+const mayorNumberArray = (randomNumbers) => {
+    
+    let maximum = randomNumbers[0];
+    let maximumPosition = 0;
+
+    for (let i = 1; i < randomNumbers.length; i++) {
+            
+        if (randomNumbers[i] > maximum) {
+        maximum = randomNumbers[i];
+        maximumPosition = i;
+        }
+    }
+    return maximum, maximumPosition;
+}
+
+export {ageInSeconds, tempFarenheit, netIncome, isPrime, lastDigit, numberCounter, randomArrayGenerator, generateRandomArrays, numberFactorial, multipleNumbers, mayorNumberArray};
