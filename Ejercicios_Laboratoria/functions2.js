@@ -1,1 +1,0 @@
-alert('Hola, cómo estas?')
